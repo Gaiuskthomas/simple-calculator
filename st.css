@@ -1,0 +1,119 @@
+/* Define our theme colors as variables for easy tweaking */
+:root {
+    --bg-color: #d9e3eb; /* Light grayish blue background */
+    --text-color: #3d4455;
+    --shadow-light: #eef5f8;
+    --shadow-dark: #a3b1c6;
+    --accent-color: #325181; /* A nice blue for the equals button */
+}
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+/* The main calculator body container */
+.calculator {
+    background-color: var(--bg-color);
+    padding: 25px;
+    border-radius: 30px;
+    /* The Neumorphic Shadow: One dark shadow to bottom-right, one light to top-left */
+    box-shadow: 
+        12px 12px 24px var(--shadow-dark), 
+        -12px -12px 24px var(--shadow-light);
+}
+
+/* --- DISPLAY AREA --- */
+.display {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 20px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-right: 10px;
+    box-sizing: border-box;
+    color: var(--text-color);
+}
+
+.previous-operand {
+    font-size: 1.2rem;
+    opacity: 0.7;
+}
+
+.current-operand {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+/* --- KEYPAD GRID --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    gap: 15px; /* Spacing between buttons */
+}
+
+/* --- BUTTON STYLING --- */
+.btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Makes them perfectly round */
+    border: none;
+    outline: none;
+    background-color: var(--bg-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-color);
+    cursor: pointer;
+    /* The Neumorphic Button Shadow */
+    box-shadow: 
+        6px 6px 12px var(--shadow-dark), 
+        -6px -6px 12px var(--shadow-light);
+    transition: all 0.2s ease;
+}
+
+/* The "pressed" effect when clicking */
+.btn:active {
+    /* Inset shadows make it look pushed IN */
+    box-shadow: 
+        inset 4px 4px 8px var(--shadow-dark), 
+        inset -4px -4px 8px var(--shadow-light);
+    color: var(--accent-color);
+}
+
+/* Utility class to make the '0' button wider */
+.span-two {
+    grid-column: span 2;
+    width: auto; /* Reset width so it fills the span */
+    border-radius: 30px; /* Adjust radius for the pill shape */
+}
+
+/* Styling for specific button types */
+.btn-operator {
+    color: var(--accent-color);
+}
+
+.btn-action {
+    color: #7f8fa6;
+}
+
+/* The equals button - lets make it pop with color */
+.btn-equals {
+    background-color: var(--accent-color);
+    color: white;
+    /* Different shadow color for the blue button so it doesn't look muddy */
+    box-shadow: 
+        6px 6px 12px #324fba, 
+        -6px -6px 12px #68a3ff;
+}
+.btn-equals:active {
+     box-shadow: 
+        inset 4px 4px 8px #324fba, 
+        inset -4px -4px 8px #68a3ff;
+}
