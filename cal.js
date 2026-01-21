@@ -150,5 +150,6 @@ if (deleteButton) {
     });
 }
 
+
 // Initial render
 calculator.updateDisplay();
